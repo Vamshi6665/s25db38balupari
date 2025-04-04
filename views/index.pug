@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to vamshi Krishna balupari 
+  button Sample button 
+  button(type="button", class="btn btn-secondary" onclick="faster()") press me
+
+  div#faster Add in extra
+  script.
+    let value = 1;
+    let amt = 2;
+
+    function faster() {
+      amt *= 2;
+      value += amt;
+      document.getElementById("faster").textContent = `Faster ${value} times ${amt}`;
+    }
+

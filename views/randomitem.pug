@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 Random Image Display
+
+  // Define image names in the array
+  - var image_names = ['download.jpg', 'download1.jpg', 'download2.jpg', 'download3.jpg', 'download4.jpg']
+
+  // Loop to generate 3 random images
+  - for (var i = 0; i < 3; i++)
+    - var randomIndex = Math.floor(Math.random() * 5)  // Generate a random index between 0 and 4
+    img(src=`/images/${image_names[randomIndex]}`, alt=`Image ${image_names[randomIndex]}`, height="200", width="200", onclick=`buy(${randomIndex})`)
+
+  // Script for the buy function
+  script.
+    function buy(index) {
+      alert("You purchased item " + index);
+    }

@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  p Below are some hybrid car search results:
+
+  // Step 2 & 3: Bootstrap grid structure
+  .container-fluid
+    .row
+      each car in results
+        .col-sm-3.border.p-2
+          h3= car.name
+          p Mileage: #{car.mileage_mpg} MPG
+          p Type: #{car.type}
+
+  // Step 8: Add a hyperlink back to the home page
+  p
+    a(href="/") Back to Home

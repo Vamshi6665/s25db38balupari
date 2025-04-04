@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1= title
+  p This is the grid display page.
+
+  // Ensure that query is defined and handle missing or invalid values
+  if query && query.rows && query.cols
+    p Query rows: #{query.rows}, Query cols: #{query.cols}
+
+    - let rows = Number(query.rows)
+    - let cols = Number(query.cols)
+
+    if !Number.isInteger(rows) || !Number.isInteger(cols)
+      p Error: Rows and columns must be integers.
+    else if rows < 3 || rows > 13
+      p Error: Rows must be between 3 and 13.
+    else if cols < 3 || cols > 13
+      p Error: Columns must be between 3 and 13.
+    else
+      table#outer(style="border-collapse: collapse; width: 50%; text-align: center;")
+        - for (let i = 0; i < rows; i++) {
+          tr#middle
+            - for (let j = 0; j < cols; j++) {
+              td(style="border: 1px solid black; padding: 10px;")= i - j
+            - }
+        - }
+  else
+    p Error: Missing or invalid query parameters for rows and columns.
