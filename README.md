@@ -1,6 +1,7 @@
 # s25wb38balupari
+https://s25db38balupari.onrender.com
 
-https://s25wb38balupari.onrender.com
+
 
 ## Class: hybridcars
 - **model_name** (string): It is the model name
