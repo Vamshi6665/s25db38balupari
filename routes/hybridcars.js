@@ -13,5 +13,12 @@ router.get('/', function(req, res, next) {
   // Pass the results array to the view
   res.render('hybridcars', { title: 'Search Results - Hybrid Cars', results: results });
 });
+var express = require('express');
+const hybridcars_controlers= require('../controllers/hybridcars');
+var router = express.Router();
+/* GET costumes */
+router.get('/', hybridcars_controlers.hybridcars_view_all_Page );
+module.exports = router;
+
 
 module.exports = router;
