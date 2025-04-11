@@ -14,10 +14,13 @@ router.get('/', function(req, res, next) {
   res.render('hybridcars', { title: 'Search Results - Hybrid Cars', results: results });
 });
 var express = require('express');
-const hybridcars_controlers= require('../controllers/hybridcars');
+const hybridcars_controllers= require('../controllers/hybridcars');
 var router = express.Router();
 /* GET costumes */
-router.get('/', hybridcars_controlers.hybridcars_view_all_Page );
+router.get('/', hybridcars_controllers.hybridcars_view_all_Page );
+// GET request for one costume.
+router.get('/hybridcars/:id', hybridcars_controllers.hybridcars_detail);
+router.put('/hybridcars/:id', hybridcars_controllers.hybridcars_update_put);
 module.exports = router;
 
 
