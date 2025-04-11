@@ -20,7 +20,7 @@ var router = express.Router();
 router.get('/', hybridcars_controllers.hybridcars_view_all_Page );
 // GET request for one costume.
 router.get('/hybridcars/:id', hybridcars_controllers.hybridcars_detail);
-//router.get('/hybridcars/:id', hybridcars_controllers.hybridcars_update_put);
+router.get('/hybridcars/:id', hybridcars_controllers.hybridcars_update_put);
 module.exports = router;
 
 
