@@ -29,9 +29,9 @@ let document = new hybridcars();
 // Even though bodies can be in many different formats, we will be picky
 // and require that it be a json object
 // {"costume_type":"goat", "cost":12, "size":"large"}
-document.hybridcars_type = req.body.hybridcars_type;
-document.cost = req.body.cost;
-document.size = req.body.size;
+document.name = req.body.name;
+document.mileage_mpg = req.body.mileage_mpg;
+document.type = req.body.type;
 try{
 let result = await document.save();
 res.send(result);
