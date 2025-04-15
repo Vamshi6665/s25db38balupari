@@ -8,7 +8,21 @@ a {
 }
 
 .hybridcarsAttr {
-  background-color: aquamarine;
-  width: 120px;
-  }
-  
+  background-color: rgb(38, 22, 186);
+  width: 150px;
+  padding: 8px 12px;
+  margin-right: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  color: #bfd310;
+  text-align: center;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.hybridcarsAttr:hover {
+  transform: scale(1.05);
+  background-color: #ab3900; /* slightly lighter aqua on hover */
+}
+

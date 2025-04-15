@@ -21,6 +21,16 @@ router.get('/', hybridcars_controllers.hybridcars_view_all_Page );
 /* GET detail costume page */
 router.get('/detail', hybridcars_controllers.hybridcars_view_one_Page);
 
+/* GET create costume page */
+router.get('/create', hybridcars_controllers.hybridcars_create_Page);
+
+/* GET create update page */
+router.get('/update', hybridcars_controllers.hybridcars_update_Page);
+
+/* GET delete costume page */
+router.get('/delete', hybridcars_controllers.hybridcars_delete_Page);
+
+
 // GET request for one costume.
 router.get('/hybridcars/:id', hybridcars_controllers.hybridcars_detail);
 router.get('/hybridcars/:id', hybridcars_controllers.hybridcars_update_put);
