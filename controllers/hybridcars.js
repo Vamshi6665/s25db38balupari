@@ -76,12 +76,39 @@ exports.hybridcars_detail = async function (req, res) {
         res.send(`{"error": document for id ${req.params.id} not found`);
     }
 };
+// Handle Costume delete on DELETE.
+
+ exports.hybridcars_delete = async function(req, res) {
+ console.log("delete " + req.params.id)
+ try {
+ result = await hybridcars.findByIdAndDelete( req.params.id)
+ console.log("Removed " + result)
+ res.send(result)
+ } catch (err) {
+ res.status(500)
+ res.send(`{"error": Error deleting ${err}}`);
+}
+};
+
+// Handle a show one view with id specified by query
+exports.hybridcars_view_one_Page = async function(req, res) {
+console.log("single view for id " + req.query.id)
+try{
+result = await hybridcars.findById( req.query.id)
+res.render('hybridcarsdetail',
+{ title: 'hybridcars Detail', toShow: result });
+}
+catch(err){
+res.status(500)
+res.send(`{'error': '${err}'}`);
+}
+};
 
 
 // Handle Costume delete from on DELETE.
-exports.hybridcars_delete = function (req, res) {
-    res.send('NOT IMPLEMENTED: hybridcars delete DELETE ' + req.params.id);
-};
+//exports.hybridcars_delete = function (req, res) {
+//    res.send('NOT IMPLEMENTED: hybridcars delete DELETE ' + req.params.id);
+//};
 // Handle Costume update form on PUT.
 // exports.hybridcars_update_put = function (req, res) {
 //     res.send('NOT IMPLEMENTED: hybridcars update PUT' + req.params.id);

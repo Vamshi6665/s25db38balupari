@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1= title
+
+  - let hybridcarsid = toShow._id
+  - let name = toShow.name
+  - let mileage_mpg = toShow.mileage_mpg
+  - let type = toShow.type
+
+  div
+    div.row
+      div(class='hybridcarAttr mr-3') Hybrid Car ID is:
+      div #{hybridcarid}
+
+    div.row
+      div(class='hybridcarAttr mr-3') Hybrid Car Type is:
+      div #{name}
+
+    div.row
+      div(class='hybridcarAttr mr-3') Hybrid Car Size is:
+      div #{mileage_mpg}
+
+    div.row
+      div(class='hybridcarAttr mr-3') Hybrid Car Cost is:
+      div #{type}
