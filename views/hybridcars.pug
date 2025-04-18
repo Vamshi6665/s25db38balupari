@@ -2,18 +2,24 @@ extends layout
 
 block content
   h1= title
-  - let items = results;
-  p Below are some hybrid car search results:
+  - let items = results
+  p Below are some car search results:
 
-  // Step 2 & 3: Bootstrap grid structure
   .container-fluid
     .row
       each car in items
         .col-sm-3.border.p-2
-          h3= car.name
-          p Mileage: #{car.mileage_mpg} MPG
+          h3 Name: #{car.name}
+          p Mileage: #{car.mileage_mpg}
           p Type: #{car.type}
+          button.btn.btn-primary.mt-2(
+            onclick=`dispatch('/hybridcars/update?id=${car._id}')`
+          ) Update
 
-  // Step 8: Add a hyperlink back to the home page
+  script.
+    function dispatch(path) {
+      window.location.href = path;
+    }
+
   p
     a(href="/") Back to Home
