@@ -4,9 +4,10 @@ block content
   h1= title
   p Welcome to vamshi Krishna balupari 
   button Sample button 
-  button(type="button", class="btn btn-secondary" onclick="faster()") press me
+  button(type="button", class="btn btn-secondary", onclick="faster()") press me
 
   div#faster Add in extra
+
   script.
     let value = 1;
     let amt = 2;
@@ -17,3 +18,23 @@ block content
       document.getElementById("faster").textContent = `Faster ${value} times ${amt}`;
     }
 
+  p
+    a(href="/hybridcars") View Quarry Search Results
+
+  hr
+
+  h1 Welcome to the Home Page
+
+  if (!user)
+    p Please log in or register to access the site.
+    a.btn.btn-primary(href="/login") Login
+    br
+    br
+    a.btn.btn-success(href="/register") Register
+
+  if (user)
+    p You are currently logged in as #{user.username}.
+    a.btn.btn-info(href="/hybridcars") Browse Quarries
+    br
+    br
+    a.btn.btn-danger(href="/logout") Logout

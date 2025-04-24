@@ -3,18 +3,33 @@ extends layout
 block content
   h1= title
   - let items = results
-  p Below are some car search results:
+  p Below are some hybrid cars in the collection:
+
+  // 🔹 Create New Hybrid Car Button
+  a.btn.btn-success.mb-3(href="/hybridcars/create") + Add New Hybrid Car
 
   .container-fluid
     .row
       each car in items
         .col-sm-3.border.p-2
           h3 Name: #{car.name}
-          p Mileage: #{car.mileage_mpg}
+          p Mileage: #{car.mileage_mpg} mpg
           p Type: #{car.type}
+
+          // 🔸 Update Button
           button.btn.btn-primary.mt-2(
             onclick=`dispatch('/hybridcars/update?id=${car._id}')`
           ) Update
+
+          // 🔸 Detail Button
+          button.btn.btn-info.mt-2.ms-2(
+            onclick=`dispatch('/hybridcars/detail?id=${car._id}')`
+          ) Detail View
+
+          // 🔸 Delete Button
+          button.btn.btn-danger.mt-2.ms-2(
+            onclick=`dispatch('/hybridcars/delete?id=${car._id}')`
+          ) Delete
 
   script.
     function dispatch(path) {

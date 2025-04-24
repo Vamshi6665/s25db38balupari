@@ -13,6 +13,14 @@ router.get('/', function(req, res, next) {
   // Pass the results array to the view
   res.render('hybridcars', { title: 'Search Results - Hybrid Cars', results: results });
 });
+// A little function to check if we have an authorized user and continue on
+// redirect to login.
+const secured = (req, res, next) => {
+if (req.user){
+return next();
+}
+res.redirect("/login");
+}
 //var express = require('express');
 const hybridcars_controllers= require('../controllers/hybridcars');
 var router = express.Router();
@@ -22,13 +30,13 @@ router.get('/', hybridcars_controllers.hybridcars_view_all_Page );
 router.get('/detail', hybridcars_controllers.hybridcars_view_one_Page);
 
 /* GET create costume page */
-router.get('/create', hybridcars_controllers.hybridcars_create_Page);
+router.get('/create',secured, hybridcars_controllers.hybridcars_create_Page);
 
 /* GET create update page */
-router.get('/update', hybridcars_controllers.hybridcars_update_Page);
+router.get('/update', secured, hybridcars_controllers.hybridcars_update_Page);
 
 /* GET delete costume page */
-router.get('/delete', hybridcars_controllers.hybridcars_delete_Page);
+router.get('/delete',secured, hybridcars_controllers.hybridcars_delete_Page);
 
 
 // GET request for one costume.
